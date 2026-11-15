@@ -21,11 +21,11 @@ export const dict = {
       hint: 'Liikuta hiirtä valon mukana',
     },
     story: {
-      title: 'Pinnasta peiliksi kolmessa vaiheessa.',
+      title: 'Likaisesta kiiltäväksi.',
       steps: [
-        { name: 'Pesu', text: 'Lika ja tiesuola irti käsin, maalipintaa naarmuttamatta.' },
-        { name: 'Kiillotus', text: 'Pesunaarmut ja himmeys pois. Heijastus terävöityy.' },
-        { name: 'Suojaus', text: 'Vaha tai keraaminen pinnoite sulkee pinnan. Vesi helmeilee pois.' },
+        { name: 'Vaahto', text: 'Paksu vaahto irrottaa lian ja tiesuolan ilman hankausta.' },
+        { name: 'Huuhtelu', text: 'Lika huuhtoutuu pois vaahdon mukana, maalipintaa naarmuttamatta.' },
+        { name: 'Viimeistely', text: 'Kuivaus ja suojaus. Pinta kiiltää taas.' },
       ],
     },
     statement:
@@ -83,11 +83,11 @@ export const dict = {
       hint: 'Move your mouse to follow the light',
     },
     story: {
-      title: 'From dull to mirror in three steps.',
+      title: 'From dirty to gleaming.',
       steps: [
-        { name: 'Wash', text: 'Dirt and road salt off by hand, without scratching the paint.' },
-        { name: 'Polish', text: 'Swirl marks and dullness out. Reflections sharpen.' },
-        { name: 'Protect', text: 'Wax or ceramic coating seals the paint. Water beads off.' },
+        { name: 'Foam', text: 'Thick foam loosens dirt and road salt without scrubbing.' },
+        { name: 'Rinse', text: 'The dirt rinses off with the foam, without scratching the paint.' },
+        { name: 'Finish', text: 'Dried and protected. The paint shines again.' },
       ],
     },
     statement:
