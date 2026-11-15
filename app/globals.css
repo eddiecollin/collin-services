@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --color-paper: #ffffff;
+  --color-mist: #f5f5f7;
+  --color-ink: #1d1d1f;
+  --color-graphite: #6e6e73;
+  --color-hairline: #d2d2d7;
+  --color-lacquer: #0b1626;
+  --color-flake: #8ab8e8;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+
+/* Lenis smooth scroll */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+body { font-family: var(--font-sans); font-feature-settings: "ss01", "cv11"; }
+
+::selection { background: var(--color-lacquer); color: #fff; }
+
+:focus-visible {
+  outline: 2px solid #0a84ff;
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Display type: tight, Apple-like tracking */
+.display {
+  font-weight: 650;
+  letter-spacing: -0.045em;
+  line-height: 0.98;
+}
+.headline {
+  font-weight: 620;
+  letter-spacing: -0.032em;
+  line-height: 1.06;
+}
+
+.tabular { font-variant-numeric: tabular-nums; }
+
+/* Canvas fallback (no WebGL): still looks like lacquer */
+.paint-fallback {
+  background:
+    radial-gradient(120% 60% at 50% 30%, #2a3a52 0%, transparent 55%),
+    linear-gradient(180deg, #0f1c2e, #050a12);
+}
+
+/* Hero panel starts as a rounded inset frame and opens to full-bleed on scroll */
+.hero-panel {
+  clip-path: inset(var(--hero-top, 47%) 3% 3% 3% round 28px);
+}
+@media (max-width: 767px) {
+  .hero-panel { --hero-top: 52%; clip-path: inset(var(--hero-top) 4% 3% 4% round 22px); }
+}
+
+/* Placeholder frames for photos that are coming later */
+.placeholder {
+  background:
+    repeating-linear-gradient(135deg, transparent 0 14px, rgb(0 0 0 / 0.025) 14px 15px),
+    var(--color-mist);
+  border: 1px dashed var(--color-hairline);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
