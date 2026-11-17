@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback, useRef, useState } from 'react';
-import { beforeAfter, gallery } from '@/content/media';
+import { beforeAfter, galleryExterior, galleryInterior } from '@/content/media';
 import { useLang } from './LangProvider';
 
 function Photo({ src, alt, label, className = '', labelClass = '' }: { src: string; alt: string; label: string; className?: string; labelClass?: string }) {
@@ -84,9 +84,19 @@ export default function Results() {
         </div>
 
         <h3 className="headline mt-24 text-[clamp(26px,2.8vw,36px)]">{t.results.gallery}</h3>
-        <div className="mt-8 grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
-          {gallery.map((g, i) => (
-            <div key={i} className="aspect-[3/4] overflow-hidden rounded-[20px] bg-mist">
+        <div className="mt-8 grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4">
+          {galleryExterior.map((g, i) => (
+            <div
+              key={g.src}
+              className={`overflow-hidden rounded-[20px] bg-mist ${i === 0 ? 'col-span-2 aspect-[4/5] md:col-span-1 md:aspect-[3/4]' : 'aspect-[3/4]'}`}
+            >
+              <Photo src={g.src} alt={g.alt[lang]} label={t.results.placeholder} />
+            </div>
+          ))}
+        </div>
+        <div className="mt-3 grid grid-cols-2 gap-3 md:mt-4 md:grid-cols-4 md:gap-4">
+          {galleryInterior.map((g) => (
+            <div key={g.src} className="aspect-[3/4] overflow-hidden rounded-[20px] bg-mist">
               <Photo src={g.src} alt={g.alt[lang]} label={t.results.placeholder} />
             </div>
           ))}

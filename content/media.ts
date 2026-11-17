@@ -8,8 +8,16 @@ export const beforeAfter = {
   after: '', //  e.g. '/images/after-1.jpg'
 };
 
-// Shown in "Työnjälkeä" as tall tiles, in this order. Add exterior shots the same way.
-export const gallery: { src: string; alt: { fi: string; en: string } }[] = [
+type Shot = { src: string; alt: { fi: string; en: string } };
+
+// "Työnjälkeä": exterior shots first (row of three), then interiors (row of four).
+export const galleryExterior: Shot[] = [
+  { src: '/images/exterior-gclass.jpg', alt: { fi: 'Pesty Mercedes G-sarja', en: 'Washed Mercedes G-Class' } },
+  { src: '/images/exterior-porsche-944.jpg', alt: { fi: 'Kiillotettu hopeinen Porsche 944', en: 'Polished silver Porsche 944' } },
+  { src: '/images/exterior-mini.jpg', alt: { fi: 'Pesty Mini, takalokasuoja ja vanne', en: 'Washed Mini, rear wing and wheel' } },
+];
+
+export const galleryInterior: Shot[] = [
   { src: '/images/interior-gclass-day.jpg', alt: { fi: 'Mercedes G-sarjan puhdistettu sisätila', en: 'Cleaned interior of a Mercedes G-Class' } },
   { src: '/images/interior-porsche-green.jpg', alt: { fi: 'Porschen vihreä verhoilu puhdistuksen jälkeen', en: 'Porsche green upholstery after cleaning' } },
   { src: '/images/interior-porsche-tan.jpg', alt: { fi: 'Porschen ruskea nahkasisustus puhdistuksen jälkeen', en: 'Porsche tan leather interior after cleaning' } },
