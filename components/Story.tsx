@@ -20,7 +20,7 @@ export default function Story() {
     const st = ScrollTrigger.create({
       trigger: el,
       start: 'top top',
-      end: '+=220%',
+      end: '+=100%',
       pin: true,
       scrub: true,
       onUpdate: (self) => {
