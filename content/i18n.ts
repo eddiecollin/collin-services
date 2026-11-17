@@ -10,15 +10,12 @@ export const dict = {
       results: 'Työnjälki',
       about: 'Meistä',
       book: 'Varaa aika',
-      logo: 'Logo tulee tähän',
     },
     hero: {
       title: 'Kiilto, jonka huomaa.',
       sub: 'Autonpesu ja detailing Porvoossa.',
       cta: 'Varaa WhatsAppissa',
       prices: 'Katso hinnat',
-      caption: 'Keraaminen pinnoite. Vesi helmeilee pois, lika ei tartu.',
-      hint: 'Liikuta hiirtä valon mukana',
     },
     story: {
       title: 'Likaisesta kiiltäväksi.',
@@ -72,15 +69,12 @@ export const dict = {
       results: 'Our work',
       about: 'About',
       book: 'Book now',
-      logo: 'Logo goes here',
     },
     hero: {
       title: 'A shine people notice.',
       sub: 'Car washing and detailing in Porvoo.',
       cta: 'Book on WhatsApp',
       prices: 'See prices',
-      caption: 'Ceramic coating. Water beads off, dirt doesn’t stick.',
-      hint: 'Move your mouse to follow the light',
     },
     story: {
       title: 'From dirty to gleaming.',

@@ -9,9 +9,6 @@ export const site = {
   phoneDisplay: '040 675 6656',
   phoneIntl: '+358406756656',
   whatsappNumber: '358406756656', // international format, no + or spaces
-  // When you have a logo, put it in /public/images/ and set the path here,
-  // e.g. logo: '/images/logo.svg'. While null, an empty logo space is shown.
-  logo: null as string | null,
   year: 2026,
 };
 
