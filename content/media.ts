@@ -4,8 +4,8 @@
 // ─────────────────────────────────────────────────────────────
 
 export const beforeAfter = {
-  before: '', // e.g. '/images/before-1.jpg'
-  after: '', //  e.g. '/images/after-1.jpg'
+  before: '/images/gwagon-before.jpg',
+  after: '/images/gwagon-after.jpg',
 };
 
 export const gallery: { src: string; alt: string }[] = [

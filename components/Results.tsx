@@ -31,7 +31,7 @@ function BeforeAfter() {
   return (
     <div
       ref={box}
-      className="relative aspect-[16/10] w-full cursor-ew-resize touch-pan-y select-none overflow-hidden rounded-[28px] max-md:aspect-[4/5] max-md:rounded-[22px]"
+      className="relative aspect-[16/10] w-full cursor-ew-resize touch-pan-y select-none overflow-hidden rounded-[28px] max-md:aspect-[4/3] max-md:rounded-[22px]"
       onPointerDown={(e) => {
         dragging.current = true;
         (e.target as HTMLElement).setPointerCapture?.(e.pointerId);
