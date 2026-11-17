@@ -18,7 +18,7 @@ export const dict = {
       prices: 'Katso hinnat',
     },
     story: {
-      title: 'Likaisesta kiiltäväksi.',
+      title: 'Kuin uusi.',
       steps: [
         { name: 'Vaahto', text: 'Paksu vaahto irrottaa lian ja tiesuolan ilman hankausta.' },
         { name: 'Huuhtelu', text: 'Lika huuhtoutuu pois vaahdon mukana, maalipintaa naarmuttamatta.' },
@@ -77,7 +77,7 @@ export const dict = {
       prices: 'See prices',
     },
     story: {
-      title: 'From dirty to gleaming.',
+      title: 'Like new.',
       steps: [
         { name: 'Foam', text: 'Thick foam loosens dirt and road salt without scrubbing.' },
         { name: 'Rinse', text: 'The dirt rinses off with the foam, without scratching the paint.' },
