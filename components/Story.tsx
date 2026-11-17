@@ -4,15 +4,15 @@ import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useLang } from './LangProvider';
-import CarWash from './CarWash';
+import CarShine from './CarShine';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const clamp01 = (v: number) => Math.min(1, Math.max(0, v));
 
 /**
- * The car turns from dirty to clean as you scroll, with one short line of text
- * fading in word by word. Desktop: the section holds briefly (pinned).
+ * A light beam and glints sweep over the car as you scroll, with one short line
+ * of text fading in word by word. Desktop: the section holds briefly (pinned).
  * Phones: no pin — it glides past and cleans as it moves up the screen.
  */
 export default function Story() {
@@ -59,15 +59,15 @@ export default function Story() {
   return (
     <section
       ref={section}
-      className="relative h-svh w-full overflow-hidden bg-[#ececec] max-md:h-[88svh]"
+      className="relative h-svh w-full overflow-hidden bg-[#c9b48a] max-md:h-auto max-md:aspect-[5/4]"
       aria-label={t.story.title}
     >
-      <CarWash progress={progress} className="absolute inset-0 block h-full w-full" />
+      <CarShine progress={progress} className="absolute inset-0 block h-full w-full" />
       <p
         ref={line}
         key={lang}
         aria-hidden="true"
-        className="headline pointer-events-none absolute inset-x-0 top-[13%] px-6 text-center text-[clamp(32px,4.6vw,64px)] text-ink max-md:top-[11%]"
+        className="headline pointer-events-none absolute inset-x-0 bottom-[13%] px-6 text-center text-[clamp(24px,4.6vw,64px)] text-ink max-md:bottom-[7%]"
       >
         {t.story.title.split(' ').map((w, i) => (
           <span key={i} className="inline-block opacity-0 will-change-[transform,opacity,filter]">

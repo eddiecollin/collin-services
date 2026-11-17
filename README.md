@@ -1,6 +1,6 @@
 # Collin Services – website
 
-Next.js 16 + Tailwind CSS 4 + GSAP + Lenis. The front page opens with an animated logo reveal; the car section is a scroll-driven WebGL dirty → clean effect on a real photo.
+Next.js 16 + Tailwind CSS 4 + GSAP + Lenis. The front page opens with an animated logo reveal; the car section sweeps a light beam and glints over a real photo (public/car) as you scroll.
 
 ## Deploy to Vercel
 
