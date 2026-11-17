@@ -24,4 +24,4 @@ export const galleryInterior: Shot[] = [
   { src: '/images/interior-gclass-night.jpg', alt: { fi: 'Mercedes G-sarjan sisätila tunnelmavalaistuksessa', en: 'Mercedes G-Class interior with ambient lighting' } },
 ];
 
-export const aboutPhoto = ''; // e.g. '/images/eddie.jpg'
+export const aboutPhoto = '/images/about-wheel.jpg';
