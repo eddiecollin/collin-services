@@ -11,14 +11,14 @@ export default function Booking() {
     <>
       <section id="varaa" className="bg-lacquer px-6 pb-[clamp(88px,14vh,160px)] pt-[clamp(100px,16vh,180px)] text-white">
         <div className="mx-auto max-w-[1120px] text-center">
-          <h2 className="display mx-auto max-w-[14ch] text-balance text-[clamp(44px,7.4vw,104px)]">{t.booking.title}</h2>
+          <h2 className="display chrome-text-light mx-auto max-w-[14ch] text-balance pb-[0.06em] text-[clamp(44px,7.4vw,104px)]">{t.booking.title}</h2>
           <p className="mx-auto mt-6 max-w-[44ch] text-[clamp(17px,1.5vw,20px)] leading-relaxed text-white/70">{t.booking.text}</p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6">
             <a
               href={waLink(t.booking.wa)}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 rounded-full bg-white px-7 py-3.5 text-[17px] font-semibold text-ink transition-transform hover:scale-[1.03] active:scale-[0.98]"
+              className="btn-chrome-light inline-flex items-center gap-2.5 rounded-full bg-white px-7 py-3.5 text-[17px] font-semibold text-ink transition-transform hover:scale-[1.03] active:scale-[0.98]"
             >
               <WhatsAppIcon className="size-5" />
               {t.booking.cta}

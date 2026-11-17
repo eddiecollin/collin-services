@@ -22,7 +22,7 @@ export default function Nav() {
             href={waLink(t.booking.wa)}
             target="_blank"
             rel="noopener noreferrer"
-            className="ml-2 hidden items-center gap-1.5 rounded-full bg-ink px-3.5 py-1.5 text-[13px] font-medium text-white transition-transform hover:scale-[1.03] active:scale-[0.98] sm:inline-flex"
+            className="btn-chrome ml-2 hidden items-center gap-1.5 rounded-full bg-ink px-3.5 py-1.5 text-[13px] font-medium text-white transition-transform hover:scale-[1.03] active:scale-[0.98] sm:inline-flex"
           >
             <WhatsAppIcon className="size-3.5" />
             {t.nav.book}

@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { hasSizePricing, services, waLink, type SizeKey } from '@/content/site';
 import { useLang } from './LangProvider';
+import Drops from './Drops';
 
 export default function Services() {
   const { t, lang } = useLang();
@@ -10,11 +11,18 @@ export default function Services() {
   const sizes: SizeKey[] = ['small', 'medium', 'large'];
 
   return (
-    <section id="hinnat" className="bg-mist px-6 py-[clamp(88px,14vh,160px)]">
-      <div className="mx-auto max-w-[1120px]">
+    <section id="hinnat" className="relative bg-mist px-6 py-[clamp(88px,14vh,160px)]">
+      <Drops
+        drops={[
+          { x: '88%', y: '6%', s: 26, speed: 1 },
+          { x: '91.5%', y: '9.5%', s: 9, speed: 1 },
+          { x: '4%', y: '58%', s: 13, speed: 0.7, desktopOnly: true },
+        ]}
+      />
+      <div className="relative z-10 mx-auto max-w-[1120px]">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
-            <h2 className="display text-[clamp(40px,6vw,80px)]">{t.services.title}</h2>
+            <h2 className="display chrome-text pb-[0.06em] text-[clamp(40px,6vw,80px)]">{t.services.title}</h2>
             <p className="mt-4 max-w-[46ch] text-[17px] leading-relaxed text-graphite">{t.services.sub}</p>
           </div>
 
@@ -38,14 +46,14 @@ export default function Services() {
           )}
         </div>
 
-        <ul className="mt-14 border-t border-hairline">
+        <ul className="chrome-rule mt-14 border-t border-hairline">
           {services.map((s) => {
             const price = s.prices[size] ?? s.prices.small;
             const name = s.name[lang];
             return (
               <li
                 key={s.id}
-                className="group grid grid-cols-[1fr_auto] items-center gap-x-6 gap-y-1 border-b border-hairline py-7 md:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)_120px_96px] md:py-8"
+                className="chrome-rule group grid grid-cols-[1fr_auto] items-center gap-x-6 gap-y-1 py-7 md:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)_120px_96px] md:py-8"
               >
                 <h3 className="text-[clamp(22px,2.3vw,30px)] font-semibold tracking-[-0.025em]">{name}</h3>
                 <p className="col-span-1 row-start-2 text-[15px] text-graphite md:col-auto md:row-auto">{s.desc[lang]}</p>

@@ -29,7 +29,7 @@ export default function WhatsAppFab() {
       rel="noopener noreferrer"
       aria-label={t.fab}
       tabIndex={show ? 0 : -1}
-      className={`fixed bottom-5 left-1/2 z-40 inline-flex -translate-x-1/2 items-center gap-2 whitespace-nowrap rounded-full bg-ink px-5 py-3 text-[15px] font-medium text-white shadow-[0_8px_30px_rgb(0_0_0/0.25)] transition-all duration-500 sm:hidden ${
+      className={`fixed bottom-5 left-1/2 z-40 inline-flex -translate-x-1/2 items-center gap-2 whitespace-nowrap rounded-full bg-ink btn-chrome px-5 py-3 text-[15px] font-medium text-white shadow-[0_8px_30px_rgb(0_0_0/0.25)] transition-all duration-500 sm:hidden ${
         show ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-6 opacity-0'
       }`}
     >

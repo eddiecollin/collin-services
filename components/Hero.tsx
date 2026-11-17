@@ -5,7 +5,8 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { site, waLink } from '@/content/site';
 import { useLang } from './LangProvider';
-import { MARK_ARC, MARK_DROP } from './LogoMark';
+import { CHROME_STOPS, MARK_ARC, MARK_DROP } from './LogoMark';
+import Drops from './Drops';
 import { WhatsAppIcon } from './icons';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -22,15 +23,16 @@ export default function Hero() {
     const el = section.current;
     if (!el) return;
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const arc = el.querySelector<SVGPathElement>('.mark-arc')!;
+    const arcs = el.querySelectorAll<SVGPathElement>('.mark-arc');
+    const arc = arcs[0];
     const grad = el.querySelector<SVGLinearGradientElement>('#markSheen')!;
     const len = arc.getTotalLength();
 
     const ctx = gsap.context(() => {
       if (!reduce) {
-        gsap.set(arc, { strokeDasharray: len, strokeDashoffset: len });
+        gsap.set(arcs, { strokeDasharray: len, strokeDashoffset: len });
         const tl = gsap.timeline({ delay: 0.25 });
-        tl.to(arc, { strokeDashoffset: 0, duration: 1.6, ease: 'expo.inOut' })
+        tl.to(arcs, { strokeDashoffset: 0, duration: 1.6, ease: 'expo.inOut' })
           .from('.mark-drop', { y: -46, scaleY: 1.25, opacity: 0, duration: 0.7, ease: 'power3.in', transformOrigin: '50% 100%' }, 1.0)
           .to('.mark-drop', { scaleY: 0.86, scaleX: 1.08, duration: 0.12, ease: 'power1.out', transformOrigin: '50% 100%' })
           .to('.mark-drop', { scaleY: 1, scaleX: 1, duration: 0.5, ease: 'elastic.out(1, 0.45)' })
@@ -60,19 +62,40 @@ export default function Hero() {
       id="top"
       className="relative flex h-svh min-h-[600px] w-full items-center justify-center overflow-hidden bg-[radial-gradient(120%_70%_at_50%_100%,#f2f2f4_0%,#ffffff_60%)] px-6"
     >
-      <div className="hero-stage flex flex-col items-center text-center">
+      <Drops
+        drops={[
+          { x: '13%', y: '24%', s: 24, speed: 1.2 },
+          { x: '16.5%', y: '29%', s: 8, speed: 1.2 },
+          { x: '83%', y: '30%', s: 32, speed: 0.8 },
+          { x: '87%', y: '63%', s: 14, speed: 1.4, desktopOnly: true },
+          { x: '79%', y: '71%', s: 7, speed: 1.4, desktopOnly: true },
+          { x: '20%', y: '72%', s: 17, speed: 1, desktopOnly: true },
+          { x: '8%', y: '86%', s: 10, speed: 0.6 },
+          { x: '91%', y: '88%', s: 12, speed: 0.6 },
+        ]}
+      />
+      <div className="hero-stage relative z-10 flex flex-col items-center text-center">
         <svg viewBox="0 0 100 100" className="size-[clamp(96px,13vw,148px)] overflow-visible text-ink" aria-hidden="true">
           <defs>
+            <linearGradient id="markChrome" x1="0" y1="0" x2="0" y2="1">
+              {CHROME_STOPS.map(([o, c]) => (
+                <stop key={o} offset={o} stopColor={c} />
+              ))}
+            </linearGradient>
             <linearGradient id="markSheen" x1="-1.2" y1="0" x2="-0.2" y2="0.6" gradientUnits="objectBoundingBox">
-              <stop offset="0" stopColor="#1d1d1f" />
-              <stop offset="0.42" stopColor="#1d1d1f" />
-              <stop offset="0.5" stopColor="#8a8a90" />
-              <stop offset="0.58" stopColor="#1d1d1f" />
-              <stop offset="1" stopColor="#1d1d1f" />
+              <stop offset="0" stopColor="#fff" stopOpacity="0" />
+              <stop offset="0.43" stopColor="#fff" stopOpacity="0" />
+              <stop offset="0.5" stopColor="#fff" stopOpacity="0.85" />
+              <stop offset="0.57" stopColor="#fff" stopOpacity="0" />
+              <stop offset="1" stopColor="#fff" stopOpacity="0" />
             </linearGradient>
           </defs>
+          <path className="mark-arc" d={MARK_ARC} fill="none" stroke="url(#markChrome)" strokeWidth="13" strokeLinecap="round" />
           <path className="mark-arc" d={MARK_ARC} fill="none" stroke="url(#markSheen)" strokeWidth="13" strokeLinecap="round" />
-          <path className="mark-drop" d={MARK_DROP} fill="url(#markSheen)" />
+          <g className="mark-drop">
+            <path d={MARK_DROP} fill="url(#markChrome)" />
+            <path d={MARK_DROP} fill="url(#markSheen)" />
+          </g>
         </svg>
 
         <h1
@@ -81,7 +104,7 @@ export default function Hero() {
         >
           {name.split('').map((c, i) => (
             <span key={i} className="inline-block overflow-hidden align-bottom" aria-hidden="true">
-              <span className="hero-char inline-block">{c === ' ' ? ' ' : c}</span>
+              <span className="hero-char chrome-text inline-block">{c === ' ' ? ' ' : c}</span>
             </span>
           ))}
         </h1>
@@ -94,7 +117,7 @@ export default function Hero() {
             href={waLink(t.booking.wa)}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-ink px-5 py-2.5 text-[15px] font-medium text-white transition-transform hover:scale-[1.03] active:scale-[0.98]"
+            className="btn-chrome inline-flex items-center gap-2 rounded-full bg-ink px-5 py-2.5 text-[15px] font-medium text-white transition-transform hover:scale-[1.03] active:scale-[0.98]"
           >
             <WhatsAppIcon />
             {t.hero.cta}

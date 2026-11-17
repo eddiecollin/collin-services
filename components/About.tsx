@@ -2,12 +2,20 @@
 
 import { aboutPhoto } from '@/content/media';
 import { useLang } from './LangProvider';
+import Drops from './Drops';
 
 export default function About() {
   const { t } = useLang();
   return (
-    <section id="meista" className="bg-mist px-6 py-[clamp(88px,14vh,160px)]">
-      <div className="mx-auto grid max-w-[1120px] items-center gap-12 md:grid-cols-[5fr_6fr] md:gap-20">
+    <section id="meista" className="relative bg-mist px-6 py-[clamp(88px,14vh,160px)]">
+      <Drops
+        drops={[
+          { x: '91%', y: '78%', s: 22, speed: 1 },
+          { x: '94.5%', y: '74%', s: 8, speed: 1 },
+          { x: '47%', y: '12%', s: 11, speed: 0.7, desktopOnly: true },
+        ]}
+      />
+      <div className="relative z-10 mx-auto grid max-w-[1120px] items-center gap-12 md:grid-cols-[5fr_6fr] md:gap-20">
         <div className="aspect-[4/5] overflow-hidden rounded-[28px]">
           {aboutPhoto ? (
             // eslint-disable-next-line @next/next/no-img-element
@@ -19,7 +27,7 @@ export default function About() {
           )}
         </div>
         <div>
-          <h2 className="display text-[clamp(40px,5.4vw,72px)]">{t.about.title}</h2>
+          <h2 className="display chrome-text pb-[0.06em] text-[clamp(40px,5.4vw,72px)]">{t.about.title}</h2>
           <p className="mt-6 max-w-[52ch] text-[clamp(17px,1.5vw,20px)] leading-[1.6] text-ink/80">{t.about.text}</p>
           <ul className="mt-10 space-y-3">
             {t.about.facts.map((f) => (

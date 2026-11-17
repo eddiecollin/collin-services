@@ -3,6 +3,7 @@
 import { useCallback, useRef, useState } from 'react';
 import { beforeAfter, galleryExterior, galleryInterior } from '@/content/media';
 import { useLang } from './LangProvider';
+import Drops from './Drops';
 
 function Photo({ src, alt, label, className = '', labelClass = '' }: { src: string; alt: string; label: string; className?: string; labelClass?: string }) {
   if (src) {
@@ -75,15 +76,21 @@ function BeforeAfter() {
 export default function Results() {
   const { t, lang } = useLang();
   return (
-    <section id="tyonjalki" className="bg-paper px-6 py-[clamp(88px,14vh,160px)]">
-      <div className="mx-auto max-w-[1120px]">
-        <h2 className="display text-[clamp(40px,6vw,80px)]">{t.results.title}</h2>
+    <section id="tyonjalki" className="relative bg-paper px-6 py-[clamp(88px,14vh,160px)]">
+      <Drops
+        drops={[
+          { x: '90%', y: '4%', s: 20, speed: 1 },
+          { x: '93%', y: '6.5%', s: 7, speed: 1 },
+        ]}
+      />
+      <div className="relative z-10 mx-auto max-w-[1120px]">
+        <h2 className="display chrome-text pb-[0.06em] text-[clamp(40px,6vw,80px)]">{t.results.title}</h2>
         <p className="mt-4 text-[17px] text-graphite">{t.results.sub}</p>
         <div className="mt-12">
           <BeforeAfter />
         </div>
 
-        <h3 className="headline mt-24 text-[clamp(26px,2.8vw,36px)]">{t.results.gallery}</h3>
+        <h3 className="headline chrome-text mt-24 text-[clamp(26px,2.8vw,36px)]">{t.results.gallery}</h3>
         <div className="mt-8 grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4">
           {galleryExterior.map((g, i) => (
             <div
