@@ -7,7 +7,7 @@ import { useLang } from './LangProvider';
 function Photo({ src, alt, label, className = '', labelClass = '' }: { src: string; alt: string; label: string; className?: string; labelClass?: string }) {
   if (src) {
     // eslint-disable-next-line @next/next/no-img-element
-    return <img src={src} alt={alt} className={`h-full w-full object-cover ${className}`} draggable={false} />;
+    return <img src={src} alt={alt} loading="lazy" decoding="async" className={`h-full w-full object-cover ${className}`} draggable={false} />;
   }
   return (
     <div className={`placeholder flex h-full w-full items-center justify-center ${className}`}>
@@ -73,7 +73,7 @@ function BeforeAfter() {
 }
 
 export default function Results() {
-  const { t } = useLang();
+  const { t, lang } = useLang();
   return (
     <section id="tyonjalki" className="bg-paper px-6 py-[clamp(88px,14vh,160px)]">
       <div className="mx-auto max-w-[1120px]">
@@ -84,21 +84,12 @@ export default function Results() {
         </div>
 
         <h3 className="headline mt-24 text-[clamp(26px,2.8vw,36px)]">{t.results.gallery}</h3>
-        <div className="mt-8 grid grid-cols-2 gap-3 md:grid-cols-6 md:grid-rows-[260px_260px] md:gap-4">
-          {gallery.map((g, i) => {
-            const layout = [
-              'col-span-2 aspect-[4/3] md:col-span-3 md:row-span-2 md:aspect-auto',
-              'aspect-square md:col-span-3 md:aspect-auto',
-              'aspect-square md:col-span-1 md:aspect-auto',
-              'aspect-square md:col-span-1 md:aspect-auto',
-              'aspect-square md:col-span-1 md:aspect-auto',
-            ][i] ?? 'aspect-square';
-            return (
-              <div key={i} className={`overflow-hidden rounded-[20px] ${layout}`}>
-                <Photo src={g.src} alt={g.alt} label={t.results.placeholder} />
-              </div>
-            );
-          })}
+        <div className="mt-8 grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
+          {gallery.map((g, i) => (
+            <div key={i} className="aspect-[3/4] overflow-hidden rounded-[20px] bg-mist">
+              <Photo src={g.src} alt={g.alt[lang]} label={t.results.placeholder} />
+            </div>
+          ))}
         </div>
       </div>
     </section>

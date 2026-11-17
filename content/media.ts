@@ -8,12 +8,12 @@ export const beforeAfter = {
   after: '', //  e.g. '/images/after-1.jpg'
 };
 
-export const gallery: { src: string; alt: string }[] = [
-  { src: '', alt: '' }, // e.g. { src: '/images/work-1.jpg', alt: 'Kiillotettu BMW' }
-  { src: '', alt: '' },
-  { src: '', alt: '' },
-  { src: '', alt: '' },
-  { src: '', alt: '' },
+// Shown in "Työnjälkeä" as tall tiles, in this order. Add exterior shots the same way.
+export const gallery: { src: string; alt: { fi: string; en: string } }[] = [
+  { src: '/images/interior-gclass-day.jpg', alt: { fi: 'Mercedes G-sarjan puhdistettu sisätila', en: 'Cleaned interior of a Mercedes G-Class' } },
+  { src: '/images/interior-porsche-green.jpg', alt: { fi: 'Porschen vihreä verhoilu puhdistuksen jälkeen', en: 'Porsche green upholstery after cleaning' } },
+  { src: '/images/interior-porsche-tan.jpg', alt: { fi: 'Porschen ruskea nahkasisustus puhdistuksen jälkeen', en: 'Porsche tan leather interior after cleaning' } },
+  { src: '/images/interior-gclass-night.jpg', alt: { fi: 'Mercedes G-sarjan sisätila tunnelmavalaistuksessa', en: 'Mercedes G-Class interior with ambient lighting' } },
 ];
 
 export const aboutPhoto = ''; // e.g. '/images/eddie.jpg'
